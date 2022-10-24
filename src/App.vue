@@ -1,13 +1,6 @@
 <template>
-  <h2>插值语法</h2>
-  <div>{{ msg }}</div>
-
-  <hr />
-
-  <h2>指令语法</h2>
-  <HelloWorld></HelloWorld>
+  <HelloWorld class="bar baz foo"></HelloWorld>
 </template>
-
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 export default {
@@ -22,4 +15,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.bar {
+  color: red;
+}
+</style>

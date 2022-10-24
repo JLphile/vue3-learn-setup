@@ -1,9 +1,6 @@
 <template>
-  <div :class="{ active: isActive }">active</div>
-  <div class="static" :class="{ active: isActive, 'text-danger': hasError }">
-    static active
-  </div>
-  <div :class="classObject"></div>
+  <p :class="{ active: isActive }">我是段落</p>
+  <span :class="$attrs.class">span标签</span>
 </template>
 
 <script>
@@ -25,4 +22,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.bar {
+  color: cyan;
+}
+</style>
