@@ -1,22 +1,20 @@
 <template>
-  <HelloWorld class="bar baz foo"></HelloWorld>
+  <HelloWorld></HelloWorld>
+  <TheWelcome></TheWelcome>
 </template>
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import TheWelcome from "./components/TheWelcome.vue";
 export default {
-  components: { HelloWorld },
+  components: { HelloWorld, TheWelcome },
   data() {
-    return {
-      msg: "Hello App",
-      url: "https://cn.bing.com/",
-      rawHtml: "This should be red.",
-    };
+    return {};
   },
 };
 </script>
 
 <style scoped>
-.bar {
-  color: red;
+:deep(.title) {
+  color: blue;
 }
 </style>

@@ -10,7 +10,7 @@
 
 template
 
-```
+```vue
 <span>Message: {{ msg }}</span>
 ```
 
@@ -32,7 +32,7 @@ template
 
   template
 
-  ```
+  ```vue
   <span v-text="msg"></span>
   <!-- 等同于 -->
   <span>{{msg}}</span>
@@ -46,7 +46,7 @@ template
 
 template
 
-```
+```vue
 <template>
     <p>
     Using v-html directive:<span style="color: red" v-html="rawHtml"></span>
@@ -86,7 +86,7 @@ Using v-html directive:: <span style="color: red">This should be red.</span>
 
 template
 
-```
+```vue
 <template>
   <a :href="url">微软搜索</a>
 </template>
@@ -101,6 +101,8 @@ export default {
 };
 </script>
 ```
+
+
 
 `v-bind` 指令指示 Vue 将元素的 `id` attribute 与组件的 `dynamicId` 属性保持一致。如果绑定的值是 `null` 或者 `undefined`，那么该 attribute 将会从渲染的元素上移除。
 
@@ -120,7 +122,7 @@ export default {
 
 :disabled=“true”
 
-```
+```vue
 <template>
   <button :disabled="isButtonDisabled">Button</button>
 </template>
@@ -144,7 +146,7 @@ export default {
 
 :disabled=“false”
 
-```
+```vue
 <template>
   <button :disabled="isButtonDisabled">Button</button>
 </template>
@@ -170,7 +172,7 @@ export default {
 
 js
 
-```
+```javascript
 data() {
   return {
     objectOfAttrs: {
@@ -185,7 +187,7 @@ data() {
 
 template
 
-```
+```vue
 <div v-bind="objectOfAttrs"></div>
 ```
 
@@ -203,7 +205,7 @@ template
 
   template
 
-  ```
+  ```vue
   <span v-pre>{{ this will not be compiled }}</span>
   ```
 
@@ -219,7 +221,7 @@ template
 
   template
 
-  ```
+  ```vue
   <!-- 单个元素 -->
   <span v-once>This will never change: {{msg}}</span>
   <!-- 带有子元素的元素 -->
@@ -247,7 +249,7 @@ template
 
   template
 
-  ```
+  ```vue
   <div v-memo="[valueA, valueB]">
     ...
   </div>
@@ -263,7 +265,7 @@ template
 
   template
 
-  ```
+  ```vue
   <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
     <p>ID: {{ item.id }} - selected: {{ item.id === selected }}</p>
     <p>...more child nodes</p>
@@ -572,11 +574,11 @@ template
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### 自动前缀[#](https://cn.vuejs.org/guide/essentials/class-and-style.html#auto-prefixing)
+##### 3.自动前缀[#](https://cn.vuejs.org/guide/essentials/class-and-style.html#auto-prefixing)
 
 当你在 `:style` 中使用了需要[浏览器特殊前缀](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix)的 CSS 属性时，Vue 会自动为他们加上相应的前缀。Vue 是在运行时检查该属性是否支持在当前浏览器中使用。如果浏览器不支持某个属性，那么将测试加上各个浏览器特殊前缀，以找到哪一个是被支持的。
 
-### 样式多值[#](https://cn.vuejs.org/guide/essentials/class-and-style.html#multiple-values)
+##### 4.样式多值[#](https://cn.vuejs.org/guide/essentials/class-and-style.html#multiple-values)
 
 你可以对一个样式属性提供多个 (不同前缀的) 值，举例来说：
 
@@ -588,7 +590,7 @@ template
 
 数组仅会渲染浏览器支持的最后一个值。在这个示例中，在支持不需要特别前缀的浏览器中都会渲染为 `display: flex`。
 
-### 使用 JavaScript 表达式[#](https://cn.vuejs.org/guide/essentials/template-syntax.html#使用-javascript-表达式)
+### 2.10 使用 JavaScript 表达式[#](https://cn.vuejs.org/guide/essentials/template-syntax.html#使用-javascript-表达式)
 
 至此，我们仅在模板中绑定了一些简单的属性名。但是 Vue 实际上在所有的数据绑定中都支持完整的 JavaScript 表达式：
 
@@ -611,7 +613,7 @@ template
 - 在文本插值中 (双大括号)
 - 在任何 Vue 指令 (以 `v-` 开头的特殊 attribute) attribute 的值中
 
-### 仅支持表达式[#](https://cn.vuejs.org/guide/essentials/template-syntax.html#仅支持表达式)
+#### 仅支持表达式[#](https://cn.vuejs.org/guide/essentials/template-syntax.html#仅支持表达式)
 
 每个绑定仅支持**单一表达式**，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方法是是否可以合法地写在 `return` 后面。
 
@@ -629,11 +631,21 @@ template
 
 
 
-# 单文件组件 CSS 功能[#](https://cn.vuejs.org/api/sfc-css-features.html#sfc-css-features)
 
 
 
-## 组件作用域 CSS[#](https://cn.vuejs.org/api/sfc-css-features.html#scoped-css)
+
+
+
+## 3.掌握如何使用vue-cli 和 vite 快速创建工程化的Vue项目
+
+## 4.掌握SFC单文件组件的各种详细用法
+
+### 单文件组件 CSS 功能[#](https://cn.vuejs.org/api/sfc-css-features.html#sfc-css-features)
+
+
+
+### 组件作用域 CSS[#](https://cn.vuejs.org/api/sfc-css-features.html#scoped-css)
 
 当 `<style>` 标签带有 `scoped` attribute 的时候，它的 CSS 只会影响当前组件的元素，和 Shadow DOM 中的样式封装类似。使用时有一些注意事项，不过好处是不需要任何的 polyfill。它的实现方式是通过 PostCSS 将以下内容：
 
@@ -677,7 +689,7 @@ vue
 
 vue
 
-```
+```vue
 <style scoped>
 .a :deep(.b) {
   /* ... */
@@ -698,6 +710,58 @@ css
 TIP
 
 通过 `v-html` 创建的 DOM 内容不会被作用域样式影响，但你仍然可以使用深度选择器来设置其样式。
+
+**案例：**
+
+父组件App.vue
+
+```vue
+<template>
+  <HelloWorld></HelloWorld>
+</template>
+<script>
+import HelloWorld from "./components/HelloWorld.vue";
+export default {
+  components: { HelloWorld },
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style scoped>
+:deep(.title) {
+  color: blue;
+}
+</style>
+```
+
+子组件：HelloWorld.vue
+
+```vue
+<template>
+  <div>
+    <h1 class="title">我是子组件</h1>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped></style>
+
+```
+
+子组件显示效果：$\textcolor{blue}{我是子组件} $
+
+```javascript
+[data-v-7a7a37b1] .title {
+    color: blue;
+}
+```
+
+**特别说明：**子组件必须有div根标签，否则会有bug
 
 ### 插槽选择器[#](https://cn.vuejs.org/api/sfc-css-features.html#slotted-selectors)
 
@@ -748,7 +812,7 @@ vue
 - **作用域样式并没有消除对 class 的需求**。由于浏览器渲染各种各样 CSS 选择器的方式，`p { color: red }` 结合作用域样式使用时 (即当与 attribute 选择器组合的时候) 会慢很多倍。如果你使用 class 或者 id 来替代，例如 `.example { color: red }`，那你几乎就可以避免性能的损失。
 - **小心递归组件中的后代选择器**！对于一个使用了 `.a .b` 选择器的样式规则来说，如果匹配到 `.a` 的元素包含了一个递归的子组件，那么所有的在那个子组件中的 `.b` 都会匹配到这条样式规则。
 
-## CSS Modules[#](https://cn.vuejs.org/api/sfc-css-features.html#css-modules)
+### CSS Modules[#](https://cn.vuejs.org/api/sfc-css-features.html#css-modules)
 
 一个 `<style module>` 标签会被编译为 [CSS Modules](https://github.com/css-modules/css-modules) 并且将生成的 CSS class 作为 `$style` 对象暴露给组件：
 
@@ -805,7 +869,7 @@ useCssModule()
 useCssModule('classes')
 ```
 
-## CSS 中的 `v-bind()`[#](https://cn.vuejs.org/api/sfc-css-features.html#v-bind-in-css)
+### CSS 中的 `v-bind()`[#](https://cn.vuejs.org/api/sfc-css-features.html#v-bind-in-css)
 
 单文件组件的 `<style>` 标签支持使用 `v-bind` CSS 函数将 CSS 的值链接到动态的组件状态：
 
@@ -858,12 +922,6 @@ p {
 实际的值会被编译成哈希化的 CSS 自定义属性，因此 CSS 本身仍然是静态的。自定义属性会通过内联样式的方式应用到组件的根元素上，并且在源值变更的时候响应式地更新。
 
 
-
-
-
-## 3.掌握如何使用vue-cli 和 vite 快速创建工程化的Vue项目
-
-## 4.掌握SFC单文件组件的各种详细用法
 
 ## 5.掌握如何实现组件之间的数据共享
 
