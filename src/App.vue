@@ -1,5 +1,6 @@
 <template>
   <HelloWorld></HelloWorld>
+  <hr />
   <TheWelcome></TheWelcome>
 </template>
 <script>
